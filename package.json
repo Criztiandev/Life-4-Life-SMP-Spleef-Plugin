@@ -1,0 +1,18 @@
+{
+  "name": "criztian-plugins",
+  "version": "0.1.0",
+  "description": "Convenience wrappers around the Gradle build for the Paper plugin monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/gradle.mjs build",
+    "clean": "node scripts/gradle.mjs clean",
+    "rebuild": "node scripts/gradle.mjs clean build",
+    "dev": "node scripts/gradle.mjs :spleef:runServer",
+    "audit": "node scripts/audit-jars.mjs",
+    "verify": "npm run build && npm run audit"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

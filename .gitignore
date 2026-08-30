@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# run-paper dev server working directories
+run/
+**/run/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+# VS Code Java extension output
+bin/
+**/bin/
+
+# Node (package.json only wraps the Gradle build — there are no dependencies)
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep the wrapper jar
+!gradle/wrapper/gradle-wrapper.jar

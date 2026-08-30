@@ -1,0 +1,115 @@
+# MiniMessage formatting — https://docs.papermc.io/adventure/minimessage/format/
+# Every message can use <prefix>. Missing keys are re-added from the plugin jar on load.
+# Chat lines carry <prefix>; titles and boss-bar text never do.
+
+prefix: "<gradient:#7fd6ff:#2b6cff>Spleef</gradient> <dark_gray>»</dark_gray>"
+
+reloaded: "<prefix> <green>Configuration reloaded.</green>"
+busy: "<prefix> <red>An arena operation is already running — wait for it to finish.</red>"
+player-not-found: "<prefix> <red>Player <name> is not online.</red>"
+
+status:
+  idle: "<prefix> <gray>No session running.</gray>\n<gray>  active arena: </gray><yellow><arena></yellow>\n<gray>  roster:       </gray><white><roster></white> <gray>(signups <signups>)</gray>\n<gray>  items held:   </gray><white><owed></white>"
+  active: "<prefix> <yellow><state></yellow> <gray>on</gray> <yellow><arena></yellow>\n<gray>  round:      </gray><white><round></white>\n<gray>  alive:      </gray><white><alive></white> <gray>of <total></gray>\n<gray>  time left:  </gray><white><time></white>\n<gray>  items held: </gray><white><owed></white>"
+
+wand:
+  given: "<prefix> Wand given. <gray>Left-click for corner 1, right-click for corner 2.</gray>"
+  corner-1: "<prefix> Corner <yellow>1</yellow> set to <white><x>, <y>, <z></white>. <gray>(<volume> blocks)</gray>"
+  corner-2: "<prefix> Corner <yellow>2</yellow> set to <white><x>, <y>, <z></white>. <gray>(<volume> blocks)</gray>"
+
+area:
+  bad-name: "<prefix> <red>Arena names may use letters, numbers, - and _ only (max 48).</red>"
+  no-selection: "<prefix> <red>Select both corners with the wand first.</red> <gray>/spleef wand</gray>"
+  bad-selection: "<prefix> <red>Invalid selection: <reason></red>"
+  saving: "<prefix> Snapshotting <yellow><name></yellow> <gray>(<blocks> blocks)…</gray>"
+  saved: "<prefix> <green>Saved <yellow><name></yellow></green> <gray>— <blocks> blocks, <size> on disk.</gray>"
+  save-failed: "<prefix> <red>Snapshot failed: <reason></red>"
+  block-entity-warning: "<prefix> <yellow>Heads up:</yellow> <gray>this region holds <white><count></white> block entities (signs, chests, banners). Their contents are <b>not</b> captured — if one is destroyed it comes back blank.</gray>"
+  resetting: "<prefix> Restoring <yellow><name></yellow>…"
+  reset: "<prefix> <green>Restored <yellow><name></yellow></green> <gray>— <blocks> blocks in <ms> ms.</gray>"
+  reset-failed: "<prefix> <red>Restore failed: <reason></red>"
+  now-active: "<prefix> Active arena is now <yellow><name></yellow>."
+  unknown: "<prefix> <red>No arena named <name>.</red>"
+  no-active: "<prefix> <red>No active arena.</red> <gray>/spleef area use <name></gray>"
+  no-snapshot: "<prefix> <red>Arena <name> has no snapshot.</red> <gray>/spleef area resnapshot <name></gray>"
+  none: "<prefix> No arenas saved yet. <gray>/spleef wand, then /spleef area save <name></gray>"
+  list: "<prefix> <count> arena(s): <white><names></white> <gray>(active: <active>)</gray>"
+  info: "<prefix> <yellow><name></yellow>\n<gray>  bounds:         </gray><white><bounds></white>\n<gray>  saved:          </gray><white><saved></white>\n<gray>  snapshot:       </gray><white><size></white>\n<gray>  block entities: </gray><white><entities></white>\n<gray>  world loaded:   </gray><white><loaded></white>"
+  deleted: "<prefix> <green>Deleted arena <yellow><name></yellow>.</green>"
+  scan: |-
+    <prefix> Spawn scan of <yellow><name></yellow>
+    <gray>  usable spawns: </gray><white><candidates></white> <gray>on deck y=<y></gray>
+    <gray>  columns scanned: </gray><white><columns></white>
+    <gray>  no floor: </gray><white><nofloor></white><gray>, no headroom: </gray><white><noheadroom></white><gray>, lower decks: </gray><white><lower></white>
+  scan-failed: "<prefix> <red>Scan failed: <reason></red>"
+
+roster:
+  closed: "<prefix> <red>Signups are closed.</red>"
+  closed-now: "<prefix> Signups <red>closed</red>."
+  opened: "<prefix> Signups <green>open</green>."
+  broadcast-open: "<prefix> <green>Spleef signups are open!</green> <gray>Type</gray> <white>/spleef join</white> <gray>to play.</gray>"
+  in-progress: "<prefix> <red>An event is already running.</red>"
+  joined: "<prefix> <green>You're in!</green> <gray>(<count> signed up)</gray>"
+  left: "<prefix> You've withdrawn from the event."
+  already-in: "<prefix> <gray>You're already signed up.</gray>"
+  not-in: "<prefix> <gray>You weren't signed up.</gray>"
+  added: "<prefix> Added <yellow><player></yellow>. <gray>(<count> signed up)</gray>"
+  already-in-other: "<prefix> <gray><player> is already signed up. (<count> total)</gray>"
+  removed: "<prefix> Removed <yellow><player></yellow>. <gray>(<count> signed up)</gray>"
+  not-in-other: "<prefix> <gray><player> wasn't signed up. (<count> total)</gray>"
+  added-all: "<prefix> Added <yellow><added></yellow> online player(s). <gray>(<count> signed up)</gray>"
+  cleared: "<prefix> Roster cleared."
+  none: "<prefix> Nobody is signed up. <gray>/spleef roster all</gray>"
+  list: "<prefix> <count> signed up <gray>(signups <signups>)</gray>: <white><names></white>"
+  empty-reject: "<prefix> <red>The roster is empty.</red> <gray>Run</gray> <white>/spleef roster all</white> <gray>to enrol everyone online, or open signups with</gray> <white>/spleef roster open</white><gray>.</gray>"
+  nobody-online: "<prefix> <red>Nobody on the roster is online.</red>"
+
+game:
+  no-session: "<prefix> <red>No session is running.</red>"
+  bad-state: "<prefix> <red>Not possible right now (<state>).</red>"
+  bad-round: "<prefix> <red>Round number must be 1 or higher.</red>"
+  world-missing: "<prefix> <red>World '<world>' is not loaded.</red>"
+  preparing: "<prefix> Preparing <yellow><arena></yellow> for <yellow><count></yellow> player(s)…"
+  prepare-failed: "<prefix> <red>Prepare failed: <reason></red>"
+  no-spawns: "<prefix> <red>No valid standing positions found in <arena>.</red> <gray>Check the platform has two blocks of headroom.</gray>"
+  vault-failed: "<prefix> <red>Could not store <player>'s items — they were left untouched and are sitting this one out.</red>"
+  nobody-enrolled: "<prefix> <red>Nobody could be enrolled. Session cancelled.</red>"
+  armed: "<prefix> <green>Round <round> armed.</green> <gray><count> player(s) frozen, <time> on the clock.</gray> <white>/spleef start</white>"
+  too-few: "<prefix> <red>Only <count> player(s) alive, minimum is <min>.</red> <gray>Use</gray> <white>/spleef start force</white> <gray>to override.</gray>"
+  started: "<prefix> <green>Go!</green> <gray><count> player(s) running.</gray>"
+  go: "<prefix> <green><bold>DIG!</bold></green>"
+  resetting: "<prefix> Resetting the platform for round <yellow><round></yellow>…"
+  reset-done: "<prefix> <gray>Platform restored (<blocks> blocks).</gray>"
+  eliminated: "<prefix> <red><player></red> is out! <gray>(<remaining> left)</gray>"
+  quit-eliminated: "<prefix> <red><player></red> disconnected and is out. <gray>(<remaining> left)</gray>"
+  winner: "<prefix> <gold><bold><player> wins!</bold></gold>"
+  draw: "<prefix> <yellow>Nobody survived — it's a draw.</yellow>"
+  time-up: "<prefix> <yellow>Time! Everyone still standing is out — it's a draw.</yellow>"
+  ended: "<prefix> <green>Event ended.</green> <gray>Restored <restored> player(s).</gray>"
+  owed-note: "<prefix> <yellow><owed> player(s) were offline</yellow> <gray>— their items are held and return automatically when they next log in.</gray>"
+  sent-home: "<prefix> <green>Your items are back.</green> <gray>Thanks for playing!</gray>"
+  items-returned: "<prefix> <green>Your spleef items have been returned.</green>"
+
+vault:
+  none: "<prefix> <gray>No items are being held.</gray>"
+  list: "<prefix> Holding items for <yellow><count></yellow> player(s): <white><names></white>"
+  restored: "<prefix> <green>Returned <player>'s items.</green>"
+  nothing: "<prefix> <gray>Nothing was being held for <player>.</gray>"
+
+title:
+  frozen: "<aqua><bold>FROZEN</bold></aqua>"
+  frozen-sub: "<gray>Hold still — the round is about to start</gray>"
+  round: "<yellow><bold>ROUND <round></bold></yellow>"
+  round-sub: "<gray>Get ready…</gray>"
+  winner: "<gold><bold><player> WINS</bold></gold>"
+  winner-sub: "<yellow>Last one standing</yellow>"
+  draw: "<red><bold>DRAW</bold></red>"
+  draw-sub: "<gray>Nobody survived</gray>"
+  eliminated: "<red><bold>ELIMINATED</bold></red>"
+  eliminated-sub: "<gray>Spectating until the next round</gray>"
+
+bossbar:
+  armed: "<white>Spleef</white> <dark_gray>|</dark_gray> <gray>starting soon —</gray> <yellow><time></yellow>"
+  running: "<white>Spleef</white> <dark_gray>|</dark_gray> <yellow><time></yellow> <gray>remaining</gray>"
+  winner: "<gold><bold><player> wins!</bold></gold>"
+  draw: "<red><bold>Draw — nobody survived</bold></red>"

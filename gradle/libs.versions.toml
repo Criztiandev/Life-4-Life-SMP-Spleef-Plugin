@@ -1,0 +1,51 @@
+[versions]
+# --- runtime platform (bump paper + invui + apiVersion/runServer in framework.paper-plugin together) ---
+paper            = "26.2.build.+"
+invui            = "2.3.0"
+
+# --- shaded libraries ---
+cloud            = "2.0.0"   # cloud-paper / cloud-brigadier / cloud-minecraft-extras
+cloudAnnotations = "2.1.0"   # intentional skew: annotations live in the core repo
+configurate      = "4.2.0"
+bstats           = "3.2.1"
+
+# --- runtime-downloaded libraries (plugin.yml `libraries:`) ---
+hikari           = "7.1.0"
+sqlite           = "3.53.2.1"
+mariadb          = "3.5.10"
+
+# --- compileOnly integrations ---
+placeholderapi   = "2.12.3"
+vaultunlocked    = "2.16"
+essentialsx      = "2.21.2"
+
+# --- test ---
+junit            = "5.11.4"
+
+# --- gradle plugins ---
+shadow           = "9.6.1"
+runPaper         = "3.1.0"   # 3.0.x breaks on Gradle 9.7
+pluginYml        = "0.9.0"
+
+[libraries]
+paper-api              = { module = "io.papermc.paper:paper-api", version.ref = "paper" }
+cloud-paper            = { module = "org.incendo:cloud-paper", version.ref = "cloud" }
+cloud-brigadier        = { module = "org.incendo:cloud-brigadier", version.ref = "cloud" }
+cloud-minecraft-extras = { module = "org.incendo:cloud-minecraft-extras", version.ref = "cloud" }
+cloud-annotations      = { module = "org.incendo:cloud-annotations", version.ref = "cloudAnnotations" }
+configurate-yaml       = { module = "org.spongepowered:configurate-yaml", version.ref = "configurate" }
+invui                  = { module = "xyz.xenondevs.invui:invui", version.ref = "invui" }
+bstats-bukkit          = { module = "org.bstats:bstats-bukkit", version.ref = "bstats" }
+hikari                 = { module = "com.zaxxer:HikariCP", version.ref = "hikari" }
+sqlite-jdbc            = { module = "org.xerial:sqlite-jdbc", version.ref = "sqlite" }
+mariadb-client         = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariadb" }
+placeholderapi         = { module = "me.clip:placeholderapi", version.ref = "placeholderapi" }
+vaultunlocked-api      = { module = "net.milkbowl.vault:VaultUnlockedAPI", version.ref = "vaultunlocked" }
+essentialsx-api        = { module = "net.essentialsx:EssentialsX", version.ref = "essentialsx" }
+junit-jupiter          = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+shadow     = { id = "com.gradleup.shadow", version.ref = "shadow" }
+run-paper  = { id = "xyz.jpenilla.run-paper", version.ref = "runPaper" }
+plugin-yml = { id = "de.eldoria.plugin-yml.bukkit", version.ref = "pluginYml" }
